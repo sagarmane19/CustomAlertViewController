@@ -1,11 +1,3 @@
-//
-//  AppDelegate.swift
-//  CustomAlertViewController
-//
-//  Created by Sagar Mane on 23/01/17.
-//  Copyright © 2017 Sagar. All rights reserved.
-//
-
 import UIKit
 
 @UIApplicationMain
