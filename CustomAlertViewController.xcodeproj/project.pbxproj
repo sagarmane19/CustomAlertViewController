@@ -13,8 +13,8 @@
 		6F12607D1E360B1D00F07968 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6F12607C1E360B1D00F07968 /* Assets.xcassets */; };
 		6F1260801E360B1D00F07968 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6F12607E1E360B1D00F07968 /* LaunchScreen.storyboard */; };
 		6F12608B1E360C3E00F07968 /* CustomAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F1260881E360C3E00F07968 /* CustomAlertViewController.swift */; };
-		6F12608C1E360C3E00F07968 /* DocumentHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6F1260891E360C3E00F07968 /* DocumentHeaderCell.xib */; };
-		6F1260951E38684800F07968 /* DocumentHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6F1260941E38684800F07968 /* DocumentHeaderView.xib */; };
+		6F12608C1E360C3E00F07968 /* HeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6F1260891E360C3E00F07968 /* HeaderCell.xib */; };
+		6F1260951E38684800F07968 /* HeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6F1260941E38684800F07968 /* HeaderView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,8 +26,8 @@
 		6F12607F1E360B1D00F07968 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6F1260811E360B1D00F07968 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6F1260881E360C3E00F07968 /* CustomAlertViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomAlertViewController.swift; sourceTree = "<group>"; };
-		6F1260891E360C3E00F07968 /* DocumentHeaderCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DocumentHeaderCell.xib; sourceTree = "<group>"; };
-		6F1260941E38684800F07968 /* DocumentHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DocumentHeaderView.xib; sourceTree = "<group>"; };
+		6F1260891E360C3E00F07968 /* HeaderCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HeaderCell.xib; sourceTree = "<group>"; };
+		6F1260941E38684800F07968 /* HeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HeaderView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,8 +75,8 @@
 			isa = PBXGroup;
 			children = (
 				6F1260881E360C3E00F07968 /* CustomAlertViewController.swift */,
-				6F1260891E360C3E00F07968 /* DocumentHeaderCell.xib */,
-				6F1260941E38684800F07968 /* DocumentHeaderView.xib */,
+				6F1260891E360C3E00F07968 /* HeaderCell.xib */,
+				6F1260941E38684800F07968 /* HeaderView.xib */,
 			);
 			path = CustomAlertController;
 			sourceTree = "<group>";
@@ -143,8 +143,8 @@
 				6F1260801E360B1D00F07968 /* LaunchScreen.storyboard in Resources */,
 				6F12607D1E360B1D00F07968 /* Assets.xcassets in Resources */,
 				6F12607B1E360B1D00F07968 /* Main.storyboard in Resources */,
-				6F12608C1E360C3E00F07968 /* DocumentHeaderCell.xib in Resources */,
-				6F1260951E38684800F07968 /* DocumentHeaderView.xib in Resources */,
+				6F12608C1E360C3E00F07968 /* HeaderCell.xib in Resources */,
+				6F1260951E38684800F07968 /* HeaderView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class DocumentHeaderView: UIView {
+class HeaderView: UIView {
     
     @IBOutlet
     var headerImageView: UIImageView?
@@ -25,7 +25,7 @@ class DocumentHeaderView: UIView {
     }
 }
 
-class DocumentHeaderCell: UITableViewCell {
+class HeaderCell: UITableViewCell {
     
     @IBOutlet
     var headerImageView: UIImageView?
@@ -51,7 +51,7 @@ class DocumentHeaderCell: UITableViewCell {
 }
 
 @objc protocol CustomAlertViewControllerDelegate {
-    func OptionSelected(optionText: NSString)
+    func OptionSelected(itemDictionary: NSMutableDictionary)
 }
 
 class CustomAlertViewController: UIAlertController, UITableViewDataSource, UITableViewDelegate {
@@ -91,7 +91,7 @@ class CustomAlertViewController: UIAlertController, UITableViewDataSource, UITab
         controller.tableView.sectionHeaderHeight = UITableViewAutomaticDimension;
         controller.tableView.estimatedSectionHeaderHeight = 25;
         
-        controller.tableView.register(UINib(nibName: "DocumentHeaderCell", bundle: nil), forCellReuseIdentifier: "DocumentHeaderCell")
+        controller.tableView.register(UINib(nibName: "HeaderCell", bundle: nil), forCellReuseIdentifier: "HeaderCell")
     }
     
     
@@ -118,24 +118,13 @@ class CustomAlertViewController: UIAlertController, UITableViewDataSource, UITab
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         
-        let headerView = Bundle.main.loadNibNamed("DocumentHeaderView", owner: self, options: nil)?.first as! DocumentHeaderView
+        let headerView = Bundle.main.loadNibNamed("HeaderView", owner: self, options: nil)?.first as! HeaderView
         headerView.headerImageView?.image       = myHeaderImage
         headerView.headerNameLabel?.text        = myHeaderTitle
         headerView.headerSubTextLabel?.text     = myHeaderSubText
         return headerView
     }
-    
-    /*func headerView(forSection section: Int) -> UITableViewHeaderFooterView {
-        let headerFooterView:UITableViewHeaderFooterView = UITableViewHeaderFooterView()
-        
-        let headerView:DocumentHeaderView = DocumentHeaderView()
-        headerView.headerImageView?.image       = myHeaderImage
-        headerView.headerNameLabel?.text        = myHeaderTitle
-        headerView.headerSubTextLabel?.text     = myHeaderSubText
-        headerFooterView.contentView.addSubview(headerView)
-        return headerFooterView
-    }*/
-    
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return myactionArray!.count
     }
@@ -148,7 +137,9 @@ class CustomAlertViewController: UIAlertController, UITableViewDataSource, UITab
         
         let identifier = "Identifier_\(indexPath.section)"
         
-        let title: String = myactionArray?.object(at: indexPath.row) as! String
+        let itemDict = myactionArray?.object(at: indexPath.row) as! NSMutableDictionary
+        
+        let title: String = itemDict.object(forKey: "title") as! String
         
         var cell:UITableViewCell? = tableView.dequeueReusableCell(withIdentifier: identifier) as UITableViewCell?
         if (cell == nil) {
@@ -169,8 +160,8 @@ class CustomAlertViewController: UIAlertController, UITableViewDataSource, UITab
         tableView.deselectRow(at: indexPath, animated: true)
         
         self.dismiss(animated: true, completion: {
-            let title: NSString = self.myactionArray?.object(at: indexPath.row) as! NSString
-            self.delegate?.OptionSelected(optionText: title)
+            let itemDict = self.myactionArray?.object(at: indexPath.row) as! NSMutableDictionary
+            self.delegate?.OptionSelected(itemDictionary: itemDict)
         })
     }
 }

@@ -8,34 +8,55 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+enum ItemIndex {
+    case ProfileIndex
+    case CallIndex
+}
 
+class ViewController: UIViewController, CustomAlertViewControllerDelegate {
+
+    func getItemDictionary(title: String, index: ItemIndex) -> NSMutableDictionary {
+        
+        let dictionary = NSMutableDictionary()
+        dictionary.setObject(title, forKey: "title" as NSCopying)
+        dictionary.setObject(index, forKey: "index" as NSCopying)
+        
+        return dictionary
+    }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
     @IBAction func alertButtonSelected(_ sender: Any) {
         let actionArray: NSMutableArray = NSMutableArray()
-        actionArray.add("Show Profile")
-        actionArray.add("Call")
+        
+        var itemDictionary  = getItemDictionary(title: "Show Profile", index: ItemIndex.ProfileIndex)
+        actionArray.add(itemDictionary)
+        
+        itemDictionary  = getItemDictionary(title: "Call", index: ItemIndex.CallIndex)
+        actionArray.add(itemDictionary)
         
         let alertController:CustomAlertViewController = CustomAlertViewController(headerImage: UIImage(named: "userProfile")!,
                                                                                   headerTitle: "Edmond Halley",
-                                                                                  headerSubText: "Technical Lead",
+                                                                                  headerSubText: "Tech Lead",
                                                                                   actionArray: actionArray) as CustomAlertViewController
+        alertController.delegate = self
         
         let defaultAction = UIAlertAction(title: "OK", style: .default, handler: nil)
         alertController.addAction(defaultAction)
         
         present(alertController, animated: true, completion: nil)
     }
-
+    
+    /* This is callback method from CustomAlertViewController about item selection */
+    
+    func OptionSelected(itemDictionary: NSMutableDictionary) {
+        
+        let index = itemDictionary.object(forKey: "index") as! ItemIndex
+        
+        switch index {
+        case .ProfileIndex:
+            print("Profile option selected")
+        case .CallIndex:
+            print("Call option selected")
+        }
+    }
 }
 
