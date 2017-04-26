@@ -1,11 +1,3 @@
-//
-//  CustomAlertViewController.swift
-//  mangoios
-//
-//  Created by Sagar Mane on 20/01/17.
-//
-//
-
 import UIKit
 
 class HeaderView: UIView {
